@@ -7,7 +7,7 @@ window.onload = function() {
         if (count == filenames.length) count = 0;
         //画像出力
 
-        var elm = document.getElementById('main-wrapper');
+        var elm = document.getElementById('wrapper');
         elm.style.backgroundImage = 'url(/static/img/bg/' + filenames[count] + ')';
     }, 7000);
 }

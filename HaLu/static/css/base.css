@@ -26,8 +26,18 @@ body {
 
 body {
     font-size: 14px;
+    /*
     font-family: 'Lato', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+    */
     background: #eee;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+}
+
+#wrapper {
+    background-image: url('/static/img/bg/bk_img001.jpg');
+    background-size: auto 100%;
 }
 
 
@@ -42,7 +52,6 @@ body {
 }
 
 #container {
-    background: #eee;
     margin-left: 260px;
     position: relative;
     -moz-transition: margin-left .25s linear;
@@ -116,7 +125,7 @@ h3 {
     height: 100%;
     position: fixed;
     color: #afc3f2;
-    background: linear-gradient(rgb(17, 49, 49), #1E00FF);
+    bbackground: linear-gradient(45deg, rgba(17, 49, 49, .3), rgba(30, 0, 255, .4)),
 }
 
 #brand-logo {
@@ -192,9 +201,10 @@ h3 {
 /* menu */
 
 #global-navi .menu-nav {
-    background: #032f55;
+    background: linear-gradient(60deg, rgba(17, 49, 49, .3), rgba(30, 0, 255, .4)), ;
     display: none;
     padding: 10px 0;
+    padding-left: 40px;
     /*-moz-transition: all .4s ease;*/
     /*-webkit-transition: all .4s ease;*/
     /*transition: all .4s ease;*/
@@ -320,7 +330,7 @@ h3 {
         -webkit-transition: .35s ease-in-out;
         -moz-transition: .35s ease-in-out;
         transition: .35s ease-in-out;
-        background: linear-gradient(rgb(17, 49, 49), #1E00FF);
+        background: linear-gradient(45deg, rgba(17, 49, 49, .3), rgba(30, 0, 255, .4)),
     }
     .wide #sidebar {
         left: 0;
@@ -335,11 +345,7 @@ h3 {
 
 .main-contents {
     background-repeat: no-repeat;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    background-image: url('/static/img/bg/bk_img001.jpg');
-    background-size: cover;
+    background: linear-gradient(45deg, rgba(125, 216, 216, 0.01), rgba(49, 23, 245, 0.1));
     background-position: center;
     min-height: 1000px;
 }
@@ -349,23 +355,13 @@ h3 {
 }
 
 #footer {
-    border-top: 3px solid #888;
     text-align: left;
-    margin-top: 2em;
-    padding: 2em 1.5em;
+    margin-top: 1em;
     /* 上下の余白 */
     width: 100%;
     position: fixed;
     bottom: 0;
-    background-color: rgba(125, 0, 0, 0.2);
+    background-color: #b1b4cf33;
     color: white;
-    font-size: 133%;
-}
-
-#main-wrapper {
-    height: 0;
-    /* 表示画像の高さ ÷ 表示画像の幅 × 100 */
-    padding-top: 67%;
-    background: url('/static/img/bg/bk_img001.jpg') 0 0 no-repeat;
-    background-size: contain;
+    z-index: 999;
 }

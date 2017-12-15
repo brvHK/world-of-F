@@ -1,5 +1,9 @@
+#wrapper {
+    background: linear-gradient(45deg, rgba(125, 216, 216, 0.6), rgba(49, 23, 245, 0.8));
+}
+
 #Story-div {
-    width: 80%;
+    width: 90%;
     background-color: #4b38382f;
     min-height: 1000px;
     text-align: center;
@@ -11,10 +15,15 @@
     margin-left: auto;
 }
 
+.Story-title {
+    font-size: 250%;
+    margin: 20px auto;
+}
+
 #img-div {
-    margin: 20px;
     margin-top: 50px;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
 }
 
 #img-div img {
