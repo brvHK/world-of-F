@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% load staticfiles %} {% block header %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet"> {% endblock %} {% block main %}
+<div class="main-contents" id="main-wrapper">
+    <div id="main-visual" class="container">
+        <div id="main">
+            <section class="invite">ここは、 F の世界 ...
+            </section>
+            <h2>What's New!!</h2>
+            <ul>
+                <li>こんな作品作った</li>
+                <li>こんな作品作った</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/index.js' %}" type="text/javascript" charset="utf-8"></script>
+
+{% endblock %}

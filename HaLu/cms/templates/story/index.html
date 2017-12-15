@@ -1,0 +1,28 @@
+{% extends "base.html" %}{% block title %}{{chapter}}{% endblock %} {% load staticfiles %} {% block header %}
+<link href="{% static 'css/Story.css' %}" rel="stylesheet">
+<style type="text/css">
+    div.main-contents {
+        background-image: url("/static/img/story/bg_{{chapter}}.jpg");
+    }
+</style> {% endblock %} {% block main %}
+<div class="main-contents">
+    <div id="main-visual" class="container">
+        <div id="{{chapter}}" class="main-cotents-wrapper">
+            <div id="Story-div">
+                <h2 class="Story-title">Story</h2>
+                <div id="img-div">
+                    <img src="/static/img/story/{{chapter}}.jpg">
+                </div>
+                <div id="tell-div">
+                    <section class="invite">ここは、 F の世界 ... ストーリーストーリー ストーリーストーリー ストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリーストーリー
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block new %}
+<div id="new">
+
+</div>
+{% endblock %} {% block Artist %} {% endblock %}

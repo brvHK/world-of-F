@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["1st/TheFixedWorld","index"],envversion:53,filenames:["1st\\TheFixedWorld.rst","index.rst"],objects:{},objnames:{},objtypes:{},terms:{"\u5185\u5bb9":0,"\u76ee\u6b21":1,fixed:1,sub:1,the:1,title:1},titles:["The Fixed World","World-of-F"],titleterms:{"-f":1,"-of":1,fixed:0,sub:0,the:0,title:0,world:[0,1]}})

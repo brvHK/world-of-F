@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% load staticfiles %} {% block header %}
+<link href="{% static 'css/Item.css' %}" rel="stylesheet">
+<style type="text/css">
+    div.main-contents {
+        background-image: url("/static/img/item/bg.jpg");
+    }
+</style> {% endblock %} {% block Subtitle %}
+<h3>- Item List -</h3> {% endblock Subtitle %} {% block main %}
+<div class="main-contents">
+    <div id="main-visual" class="container">
+        <div id="Item" class="row">
+            <div id="PhantomCastle">
+                <img src="{% static 'img/upload/79c5e8f35f5a435abf4398d3bf4c2746.JPG' %}" height="320" />
+            </div>
+            <div id="Item" class="col-md-4 col-xs-12 List">
+                <p>画像</p>
+                <img src="{% static 'img/upload/79c5e8f35f5a435abf4398d3bf4c2746.JPG' %}" width="320" height="200" />
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+#Story-div {
+    width: 80%;
+    background-color: #4b38382f;
+    min-height: 1000px;
+    text-align: center;
+    color: white;
+    margin-top: 160px;
+    align-content: center;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#img-div {
+    margin: 20px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+#img-div img {
+    width: 100%;
+}
+
+#tell-div {
+    margin: 10px;
+}
+
+.main-cotents-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.Story-title {
+    font-size: 160%;
+}
+
+.test-01 img:first-child {
+    -webkit-animation: crossfade 5s linear 0s infinite alternate;
+    animation: crossfade 5s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes crossfade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes crossfade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

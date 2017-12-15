@@ -1,0 +1,16 @@
+.twitter {
+    padding-top: 50px;
+}
+
+#main {
+    width: 100%;
+}
+
+#Artist * {
+    padding: 30px;
+    color: white;
+}
+
+#Artist {
+    margin-top: 160px;
+}

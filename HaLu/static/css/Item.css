@@ -1,0 +1,17 @@
+.main-cotents {
+    background-image: url("/static/img/Item/bg.jpg");
+}
+
+#Item {
+    margin-top: 150px;
+    width: 100%;
+}
+
+#PhantomCastle {
+    width: 100%;
+}
+
+#PhantomCastle img {
+    object-fit: cover;
+    width: 100%;
+}
