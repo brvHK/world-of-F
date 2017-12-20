@@ -15,9 +15,11 @@
     margin-left: auto;
 }
 
-.Story-title {
-    font-size: 250%;
+#story-title {
+    font-size: 36pt;
+    font-style: italic;
     margin: 20px auto;
+    padding: 20px;
 }
 
 #img-div {
@@ -39,13 +41,18 @@
     height: 100%;
 }
 
-.Story-title {
-    font-size: 160%;
-}
-
 .test-01 img:first-child {
     -webkit-animation: crossfade 5s linear 0s infinite alternate;
     animation: crossfade 5s linear 0s infinite alternate;
+}
+
+.story-contents {
+    font-size: 150%;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-style: none;
+    padding: 35px auto;
 }
 
 @-webkit-keyframes crossfade {

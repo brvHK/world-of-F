@@ -1,7 +1,4 @@
-.. World-of-F documentation master file, created by
-   sphinx-quickstart on Sun Dec 10 10:30:22 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. World-of-F 本文です
 
 ======================================
 World-of-F

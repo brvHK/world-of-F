@@ -1,10 +1,5 @@
 {% extends "base.html" %} {% load staticfiles %} {% block header %}
-<link href="{% static 'css/Item.css' %}" rel="stylesheet">
-<style type="text/css">
-    div.main-contents {
-        background-image: url("/static/img/item/bg.jpg");
-    }
-</style> {% endblock %} {% block Subtitle %}
+<link href="{% static 'css/Item.css' %}" rel="stylesheet"> {% endblock %} {% block Subtitle %}
 <h3>- Item List -</h3> {% endblock Subtitle %} {% block main %}
 <div class="main-contents">
     <div id="main-visual" class="container">

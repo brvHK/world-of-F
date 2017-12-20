@@ -1,6 +1,8 @@
 body {
     font-size: 14px;
-    font-family: 'Lato', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+    font-family: 'verdana', 'arial', 'helvetica', 'sans-serif';
+    /*font-family: 'Lato', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+    */
     background: #eee;
 }
 
@@ -26,9 +28,7 @@ body {
 
 body {
     font-size: 14px;
-    /*
-    font-family: 'Lato', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
-    */
+    font-family: 'Cambria', 'Lato', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
     background: #eee;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
@@ -38,6 +38,9 @@ body {
 #wrapper {
     background-image: url('/static/img/bg/bk_img001.jpg');
     background-size: auto 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: rgba(55, 49, 97, 0.6);
 }
 
 
@@ -84,7 +87,6 @@ body {
 }
 
 #main-visual h2 {
-    font-size: 21px;
     color: #fff;
 }
 
@@ -125,7 +127,7 @@ h3 {
     height: 100%;
     position: fixed;
     color: #afc3f2;
-    bbackground: linear-gradient(45deg, rgba(17, 49, 49, .3), rgba(30, 0, 255, .4)),
+    background: linear-gradient(45deg, rgba(17, 49, 49, .3), rgba(30, 0, 255, .4));
 }
 
 #brand-logo {

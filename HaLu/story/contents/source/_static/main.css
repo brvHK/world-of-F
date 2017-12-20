@@ -1,24 +1,108 @@
-#header {
-  background-color: #a2e8fe;
+body {
+    font-family: 'Cambria', 'Lato', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
 }
 
-#sidebar {
-  background-color: #4b7afd;
-  float: left;
-  width: 20%;
+#wrapper {
+    background-image: url('img/bk_img002.jpg');
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#header {
+    text-align: left;
+    padding: 10px 15px;
+    width: 100%;
+    background: linear-gradient(45deg, rgb(17, 49, 49), rgb(30, 0, 255));
+}
+
+#header ul {
+    float: right;
+    color: white;
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+
+#header li {
+    float: left;
+    margin: 0 0 0 10px;
+}
+
+#header li a {
+    border-radius: 1px;
+    padding: 8px 12px;
+    color: #f9f9f0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#header li a:hover {
+    background-color: #f9f9f0;
+    color: #0a507a;
+    text-shadow: none;
+}
+
+div.related {
+    font-size: 1em;
+    color: white;
+}
+
+div.related ul {
+    height: 1.9em;
+    border-top: 1px solid #002e50;
+    border-bottom: 1px solid #002e50;
+}
+
+div.related ul li {
+    margin: 0 5px 0 0;
+    padding: 0;
+    float: left;
+}
+
+div.related ul li.right {
+    float: right;
+    margin-right: 5px;
+}
+
+div.related ul li a {
+    margin: 0;
+    padding: 0 5px 0 5px;
+    line-height: 1.75em;
+    color: #f9f9f0;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+div.related ul li a:hover {
+    color: white;
+    /*text-decoration: underline;*/
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.5);
+}
+
+.sphinxsidebar {
+    min-height: 540px;
+    padding: 40px 30px;
+    margin: 10px 20px;
+}
+
+#main-document {
+    margin: 10px 20px;
+    border-radius: 20px;
+    background-color: rgba(179, 101, 101, 0.5);
+    min-height: 500px;
+    padding: 40px 30px;
 }
 
 #document {
-  background-color: #f7fed3;
-  float:left;
-  width: 80%;
+    float: left;
+    width: 80%;
 }
 
 #footer {
-  background-color: #fcc1c1;
-  clear: both;
+    background-color: #fcc1c1;
+    clear: both;
 }
 
 h1 {
-  margin: 0;
+    margin: 0;
 }

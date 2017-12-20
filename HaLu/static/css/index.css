@@ -3,3 +3,23 @@
     background-color: #ebffeb;
     color: white;
 }
+
+#main-visual {
+    margin-left: 10px;
+}
+
+#new {
+    margin: 120px 10%;
+    width: 100%;
+}
+
+div.infobox {
+    height: 5.5em;
+    /* 高さを制限(※) */
+    border: gray 2px solid;
+    /* 枠線を追加 */
+    background-color: rgba(139, 130, 130, 0.5);
+    /* 背景色を追加 */
+    color: azure;
+    overflow: auto;
+}
