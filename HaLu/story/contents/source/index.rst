@@ -9,4 +9,5 @@ World-of-F
    :caption: 目次:
 
    1st/TheFixedWorld
+   2nd/FlickersStory
 

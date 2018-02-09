@@ -1,16 +1,25 @@
 #main {
-    opacity: 0.1;
-    background-color: #ebffeb;
     color: white;
 }
 
+
+/* main-visual */
+
 #main-visual {
-    margin-left: 10px;
+    min-height: 680px;
+    background-image: url('/static/img/bg/bk_img001.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#main-visual h2 {
+    color: #fff;
 }
 
 #new {
-    margin: 120px 10%;
-    width: 100%;
+    color: white;
+    /*margin: 10%;*/
 }
 
 div.infobox {
@@ -22,4 +31,16 @@ div.infobox {
     /* 背景色を追加 */
     color: azure;
     overflow: auto;
+}
+
+@media screen and (max-width: 422px) {
+    #new {
+        width: 100%;
+    }
+    #main-visual {
+        min-height: 320px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
 }

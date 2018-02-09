@@ -42,23 +42,23 @@ class Art(models.Model):
     """
 
     class Meta:
-        verbose_name = 'Item'
-        verbose_name_plural = 'Item'
+        verbose_name = 'art'
+        verbose_name_plural = 'art'
 
     name = models.CharField(u'作品名', max_length=30)
-    detail = models.TextField(u'詳細', max_length=300,blank=True,null=True)
+    detail = models.TextField(u'詳細', max_length=300, blank=True, null=True)
     category = models.ForeignKey(Category)
     chapter = models.ForeignKey(Chapter)
     date = models.DateField(u'日付')
-    minne_url = models.URLField(u'ミンネのURL',blank=True,null=True)
-    is_sold = models.BooleanField(u'売れたか',default=False)
-    price = models.IntegerField(u'値段',default=1000)
-    price_sold = models.IntegerField(u'実際売った値段',default=1000)
-    comment = models.TextField(u'作者のコメント',max_length=300,blank=True,null=True)
-
+    minne_url = models.URLField(u'ミンネのURL', blank=True, null=True)
+    is_sold = models.BooleanField(u'売れたか', default=False)
+    price = models.IntegerField(u'値段', default=1000)
+    price_sold = models.IntegerField(u'実際売った値段', default=1000)
+    comment = models.TextField(
+        u'作者のコメント', max_length=300, blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return "No. " + str(self.pk) + " " + self.name + "_" + self.date.strftime(u'%Y/%m/%d')+" 製作"
 
 
 class ArtImage(models.Model):
@@ -69,7 +69,6 @@ class ArtImage(models.Model):
     class Meta:
         verbose_name = '画像'
         verbose_name_plural = '画像'
-
 
     def get_image_path(self, filename):
         """カスタマイズした画像パスを取得する.
@@ -83,11 +82,12 @@ class ArtImage(models.Model):
         name = str(uuid.uuid4()).replace('-', '')
         extension = os.path.splitext(filename)[-1]
         return prefix + name + extension
-    
 
     displayName = models.CharField(u'画像名', max_length=30)
-    artImage = models.ImageField(u'作品の画像',upload_to=get_image_path)
-    art = models.ForeignKey(Art,models.SET_NULL,blank=True,null=True,)
+    artImage = models.ImageField(u'作品の画像', upload_to=get_image_path)
+    art = models.ForeignKey(Art, models.SET_NULL, blank=True,
+                            null=True, verbose_name="作品", related_name="art")
+    is_in_dark = models.BooleanField(u'暗闇', default=True)
 
     def __str__(self):
         return self.displayName
@@ -117,7 +117,8 @@ class ArtImage(models.Model):
 
             # 保存前のファイルがあったら削除
             if previous:
-                os.remove(MEDIA_ROOT + '/' + previous.image.name)
+                os.remove(MEDIA_ROOT + "\\" +
+                          previous.artImage.name.replace("/", "\\"))
             return result
         return wrapper
 

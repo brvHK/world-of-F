@@ -6,6 +6,6 @@ from items import views
 
 urlpatterns =[
     #作品一覧
-    url(r'^', views.Item.as_view(), name='index'),
-    url(r'^PhantomCastle', views.Item.as_view(), name='PhantomCastle'),
+    url(r'^$', views.Item.as_view(), name='index'),
+    url(r'detail/(?P<pk>[0-9]+)/$', views.ItemDetailView.as_view(), name='detail'),
 ]

@@ -1,5 +1,5 @@
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
@@ -29,20 +29,55 @@
   </head>
   <body>
     <div id="wrapper">
-        <div id="header">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="item.html">Item</a></li>
-                <li><a href="aa.html">aa</a></li>
-                <li><a href="Cast.html">Cast</a></li>
+        <header>
+            <ul id="header-menu" class="header-menu-main">
+                <li class="header-trigger">
+                    <a class="header-icon header-icon-menu"><span>Menu</span></a>
+                    <nav class="header-menu-wrapper">
+                        <div class="header-scroller">
+                            <ul class="header-menu">
+                                <!-- <li class="header-search-item">
+                                            <input placeholder="Search" type="search" class="header-search">
+                                            <a class="header-icon header-icon-search"><span>Search</span></a>
+                                        </li> -->
+                                <li>
+                                    <a href="/story/" class="header-icon header-icon-story" id="story">Story Prologue</a>
+                                    <ul class="header-submenu">
+                                        <li><a class="header-icon header-icon-story" href="/story/prologue/1st/">1st</a></li>
+                                        <li><a class="header-icon header-icon-story" href="/story/prologue/2nd/">2nd</a></li>
+                                        <li><a class="header-icon header-icon-story" href="/story/prologue/3rd/">3rd</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="header-icon header-icon-item" href="/items">ITEM</a></li>
+                                <li><a class="header-icon header-icon-about" href="/about/Artist/HaLu">ABOUT</a></li>
+                                <li> <a class="header-icon header-icon-info">Infomation</a> </li>
+                            </ul>
+                        </div>
+                        <!-- /header-scroller -->
+                    </nav>
+                </li>
+                <li>
+                    <a href="/"><img src="_static/img/logo.png" alt="World-of-F" /></a>
+                </li>
+
+                <li><a href="#">&raquo;小説</a></li>
             </ul>
-            <div>
+        </header>
+        <!-- <div id="header">
+            <div class="header-inline">
                 <a href="index.html">
                     <img src="_static/img/logo.png" alt="World-of-F" />
                 </a>
             </div>
-        </div>
-        
+            <div class="header-inline right">
+                <ul>
+                    <li><a href="index.html">小説TOPへ</a></li>
+                    <li><a href="item.html">アイテム紹介</a></li>
+                    <li><a href="aa.html">登場人物</a></li>
+                    <li><a href="Cast.html">情報</a></li>
+                </ul>
+            </div>
+        </div> -->
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>ナビゲーション</h3>
       <ul>
@@ -58,8 +93,7 @@
 
     <div class="document">
         <div id="document">
-            <div id="main-document">
-                 <div class="section" id="world-of-f">
+            <div id="main-document"><div class="section" id="world-of-f">
 <h1>World-of-F<a class="headerlink" href="#world-of-f" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">目次:</span></p>
@@ -68,13 +102,17 @@
 <li class="toctree-l2"><a class="reference internal" href="1st/TheFixedWorld.html#sub-title">sub title</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="2nd/FlickersStory.html">Flickers Story</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2nd/FlickersStory.html#under-the-star-light">　～星降る夜に～　Under the　Star　Light</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
- 
+
             </div>
         </div>
-        
+        <!-- -->
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>次のトピックへ</h4>
@@ -110,6 +148,5 @@
             <h1>footer</h1>
         </div>
     </div>
-    
   </body>
 </html>

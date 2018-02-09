@@ -13,7 +13,10 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <link href="{% static 'css/reset.css' %}" rel="stylesheet">
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
-    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/vnd.microsoft.icon">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/css/perfect-scrollbar.min.css' rel='stylesheet' type='text/css'> {% block header %} {{ header }} {% endblock %} {% block extrahead %}{% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/js/perfect-scrollbar.jquery.min.js"></script>
@@ -21,88 +24,59 @@
 
 <body>
     <div id="wrapper">
-        <div id="nav-toggle">
-            <div>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        <div>
-            <aside id="sidebar" class="scroll">
-                <nav id="global-navi">
-                    <ul>
-                        <li class="menu">
-                            <a href="/story/" class="menu-head" class="menu-item" id="story">Story ...</a>
-                            <ul class="menu-nav">
-                                <li><a href="/story/prologue/1st/">1st</a></li>
-                                <li><a href="/story/prologue/2nd/">2nd</a></li>
-                                <li><a href="/story/prologue/3rd/">3rd</a></li>
+
+        <header>
+            <ul id="header-menu" class="header-menu-main">
+                <li class="header-trigger">
+                    <a class="header-icon header-icon-menu"><span>Menu</span></a>
+                    <nav class="header-menu-wrapper">
+                        <div class="header-scroller">
+                            <ul class="header-menu">
+                                <!-- <li class="header-search-item">
+                                        <input placeholder="Search" type="search" class="header-search">
+                                        <a class="header-icon header-icon-search"><span>Search</span></a>
+                                    </li> -->
+                                <li>
+                                    <a href="/story/" class="header-icon header-icon-story" id="story">Story Prologue</a>
+                                    <ul class="header-submenu">
+                                        <li><a class="header-icon header-icon-story" href="/story/prologue/1st/">1st</a></li>
+                                        <li><a class="header-icon header-icon-story" href="/story/prologue/2nd/">2nd</a></li>
+                                        <li><a class="header-icon header-icon-story" href="/story/prologue/3rd/">3rd</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="header-icon header-icon-item" href="/items">ITEM</a></li>
+                                <li><a class="header-icon header-icon-about" href="/about/Artist/HaLu">ABOUT</a></li>
+                                <li> <a class="header-icon header-icon-info">Infomation</a> </li>
                             </ul>
-                        </li>
-                        <li class="menu">
-                            <a href="/items" class="menu-item">Items</a>
-                        </li>
-                        <li class="menu">
-                            <a href="/about/Artist/HaLu" class="menu-item">Artist</a>
-                        </li>
-                        <li>
-                            <a href="#" class="menu-item">Info</a>
-                        </li>
-                    </ul>
-                </nav>
+                        </div>
+                        <!-- /header-scroller -->
+                    </nav>
+                </li>
+                <li>
+                    <a href="/"><img id="brand-logo" src="{% static 'img/logo.png' %}" alt="World of F" /></a>
+                </li>
 
-            </aside>
-
-        </div>
-        <div id="container">
-            <header id="global-head">
-                <a href="/">
-                    <h1 id="brand-logo"><img src="{% static 'img/logo.png' %}" alt="World of F" /></h1>
-                </a>
-                {% block Subtitle %}
-                <h3></h3> {% endblock Subtitle %}
-
-            </header>
+                <li><a href="#">&raquo;小説</a></li>
+            </ul>
+        </header>
+        <div id="main" class="container darkness">
             {% block main %} {{ main }} {% endblock main %}
         </div>
-        <div id="footer">
+        <footer>
             <p>Copyright :
                 <a href="/about/Artist/HaLu">HaLu</a> &
                 <a href="/about/Artist/HK">Ken</a>
             </p>
             <p>since 2013</p>
-        </div>
+        </footer>
     </div>
-    <script type="text/javascript">
-        (function($) {
-            $(function() {　　
-                // サイドサブメニューアコーディオン
-                $('.menu-head').on('click', function() {
-                    var $subNav = $(this).next('.menu-nav');
-                    if ($subNav.is(':visible')) {
-                        $subNav.velocity('slideUp', {
-                            duration: 200
-                        });
-                        $(this).parent('li').removeClass('is-active');
-                    } else {
-                        $subNav.velocity('slideDown', {
-                            duration: 200
-                        });
-                        $(this).parent('li').addClass('is-active');
-                    }
-                    return false;
-                });
 
-                $('#nav-toggle').on('click', function() {
-                    $('#wrapper').toggleClass('wide');
-                });
-
-                $('.scroll').perfectScrollbar();
-            });
-        })(jQuery);
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/gnmenu.js' %}"></script>
+    <script>
+        new gnMenu(document.getElementById('header-menu'));
     </script>
-
 </body>
+
 
 </html>

@@ -5,22 +5,17 @@
         background-image: url("/static/img/story/bg_{{chapter}}.jpg");
     }
 </style> {% endblock %} {% block main %}
-<div class="main-contents">
-    <!-- ↑消さない -->
-    <div id="main-visual">
-        <!-- ↑消さない -->
-        <div id="{{chapter}}" class="main-cotents-wrapper">
-            <div id="Story-div">
-                <h2 id="story-title">Story</h2>
-                <div id="img-div">
-                    <img src="/static/img/story/{{chapter}}.jpg">
-                </div>
-                <div id="tell-div">
-                    <section class="invite">
-                        <pre class="story-contents" style="background-color: rgba(0,0,0,0.5); color: white;">{{story}}</pre>
-                    </section>
-                </div>
-            </div>
+
+<div id="{{chapter}}" class="main-cotents-wrapper">
+    <div id="Story-div">
+        <h2 id="story-title">Story</h2>
+        <div id="img-div">
+            <img src="/static/img/story/{{chapter}}.jpg">
+        </div>
+        <div id="tell-div">
+            <section class="invite">
+                <pre class="story-contents" style="background-color: rgba(0,0,0,0.5); color: white;">{{story}}</pre>
+            </section>
         </div>
     </div>
 </div>

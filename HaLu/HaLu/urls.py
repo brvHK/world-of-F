@@ -28,8 +28,9 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     #static(STORY_MAIN_URL, document_root=STORY_MAIN_ROOT),
     url(r'^admin/', admin.site.urls),
-    url(r'^cms/', include('cms.urls', namespace='cms')),
     url(r'^about/', include('about.urls', namespace='about')),
+    url(r'^api/', include('api.urls', namespace='api')),
+    url(r'^cms/', include('cms.urls', namespace='cms')),
     url(r'^items/', include('items.urls', namespace='items')),
     url(r'^story/', include('story.urls', namespace='story')),
     url(r'^$', TemplateView.as_view(template_name='index.html')),
