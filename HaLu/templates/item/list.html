@@ -1,0 +1,163 @@
+{% extends "base.html" %} {% load custom_filter %}{% block title %}作品一覧{% endblock %} {% load staticfiles %} {% block header %}
+<link href="{% static 'css/Item.css' %}" rel="stylesheet">
+
+<style type="text/css">
+    div#wrapper {
+        background-image: url("{% static 'img/item/bg.jpg' %}");
+        background-repeat: repeat;
+    }
+</style>
+{% endblock %} {% block Subtitle %}
+<h3>- Item List -</h3> {% endblock Subtitle %} {% block main %}
+<script type="text/javascript" charset="utf-8">
+    var list = [];
+    var light_off = true; //
+</script>
+<div id="light-wrapper">
+    <a onclick="switchlight();"><i class="fa fa-lightbulb-o fa-3x fa-yellow" aria-hidden="true"></i></a>
+</div>
+{%if category_filtered %}
+        <div class="filter-results">
+            <h4><i class="fa fa-filter"></i>&nbsp;&nbsp;&nbsp; 絞込み : </h4>
+            <ul class="messagelist">
+            {% for category in category_filtered %}
+                <li class="filtered"><span class="item-name">{{ category.category }}</span></li>
+            {% endfor %}
+            </ul>
+        </div>
+{% endif %}
+        <!--
+        <div class="filter-inner col-xs-12 ">
+            <form action="" name="search" id="search" method="get">
+                <div>
+                    {% csrf_token %}
+                    <h2 class="filter-head">絞り込み検索</h2>
+                    <h3 class="filter-title">カテゴリ {% for category in categorys %}
+                        <label class="filter-label">
+                                &nbsp;<input type="checkbox" name="category" class="category-filter filter-input" value="{{ category.pk }}" checked="checked">&nbsp;{{ category.category }}
+                        </label> {% endfor %}</h3>
+                </div>
+                <div>
+                    <h3 class="filter-title">小説{% for chapter in chapters %}
+                        <label class="filter-label">
+                                &nbsp;<input type="checkbox" name="chapter" class="chapter-filter filter-input" value="{{ chapter.id }}" checked="checked">&nbsp;{{ chapter.chapter}}
+                        </label> {% endfor %}
+                    </h3>
+                </div>
+                <h3 class="filter-title">完売
+                    <label class="filter-label">
+                        &nbsp;<input type="checkbox" name="is-soldout" class="is-soldout filter-input" value="soldout">&nbsp;完売
+                    </label>
+                </h3>
+                <button class="searchBtn"><i class="fa fa-filter"></i>絞込み検索</button>
+            </form>
+        </div>
+        
+        <script type="text/javascript" charset="utf-8">
+            $('.searchBtn').on('click', function() {
+                var serialize = function(data) {
+                    var key, value, type, i, max;
+                    var encode = window.encodeURIComponent;
+                    var query = '?';
+
+                    for (key in data) {
+                        value = data[key];
+                        type = typeof(value) === 'object' && value instanceof Array ? 'array' : typeof(value);
+                        switch (type) {
+                            case 'undefined':
+                                // キーのみ
+                                query += key;
+                                break;
+                            case 'array':
+                                // 配列
+                                for (i = 0, max = value.length; i < max; i++) {
+                                    query += key;
+                                    query += '=';
+                                    query += encode(value[i]);
+                                    query += '&';
+                                }
+                                query = query.substr(0, query.length - 1);
+                                break;
+                            case 'object':
+                                // ハッシュ
+                                for (i in value) {
+                                    query += key + '[' + i + ']';
+                                    query += '=';
+                                    query += encode(value[i]);
+                                    query += '&';
+                                }
+                                query = query.substr(0, query.length - 1);
+                                break;
+                            default:
+                                query += key;
+                                query += '=';
+                                query += encode(value);
+                                break;
+                        }
+                        query += '&';
+                    }
+                    query = query.substr(0, query.length - 1);
+                    return query;
+                };
+                var obj = new Object();
+                obj.category = getParameterCategory();
+                obj.chapter = getParameterChapter();
+                var queryParam = serialize(obj);
+                url_queryParam = "{% url 'item:index' %}" + queryParam;
+                location.href = url_queryParam;
+
+            });
+        </script>
+        -->
+<div id="main-visual" class="container-fluid darkness">
+<h2 class="item-list-head">作品一覧</h2>
+        <ul class="page filter-results">
+            <li>全カテゴリ : &nbsp;&nbsp;&nbsp;<span class="item-count item-count-all">{{ item_count_all }}</span>&nbsp;&nbsp;&nbsp;</li>
+            <li>表示件数 : &nbsp;&nbsp;&nbsp;<span class="item-count item-count-display">{{ item_count }}</span>&nbsp;&nbsp;&nbsp;</li>
+            <h4>ページ <span>{{ page_obj.number }}</span> / <span>{{ page_obj.paginator.num_pages }}</span>&nbsp;&nbsp;&nbsp;</h4>
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                {% else %}
+                <li class="disabled"><a href="#">&laquo;</a></li>
+                {% endif %} {% for linkpage in object_list.pagenator.page_range %} {% if linkpage == object_list.number %}
+                <li class="active"><a href="#">{{ linkpage }}</a></li>
+                {% else %}
+                <li class="active"><a href="?page={{ linkpage }}">{{ linkpage }}</a></li>
+                {% endif %} {% endfor linkpage %} {% if object_list.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                {% else %}
+                <li class="disabled"><a href="#">&raquo;</a></li>
+                {% endif %}
+            </ul>
+        </ul>
+        <script src="{% static 'js/item.js' %}"></script>
+        <div id="filter" class="row">
+        {% for art in object_list %}
+            <div class="arts col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                {% if art.is_sold %}
+                <div class="ribbon_soldout">
+                    <span class="ribbon">SOLD OUT</span>
+                </div>
+                {% endif %}
+                {% if art.date|is_new %}
+                <div class="ribbon_new-wrapper">
+                    <span class="ribbon_new">NEW</span>
+                </div>
+                {% endif %}
+                <a href="/item/detail/{{ art.id }}">
+                    <figure>
+                        <img class="item-image" id="image_{{ art.id }}" />
+                        <figcaption><strong>{{ art.name }}</strong></figcaption>
+                    </figure>
+                </a>
+            </div>
+            <script type="text/javascript" charset="utf-8">
+                list.push("{{ art.id }}");
+                $(window).on('load', lightTurn('off', "{{ art.id }}"));
+            </script>
+                {% endfor %}
+        </div>
+</div>
+
+{% endblock %}

@@ -36,7 +36,7 @@ function lightTurn(on_or_off, var_id) {
         var id = data.id;
         var name = data.image;
         if (typeof name === "undefined") {
-            var img_name = on_or_off ? 'no_image_white.png' : 'no_image_black.png'
+            var img_name = 'no_image.png';
             img.src = "/static/img/" + img_name;
         } else {
             img.src = "/static/" + name;
@@ -50,5 +50,5 @@ function switchlight() {
         lightTurn(on_or_off, num);
     });
     light_off = !(light_off);
-    $('#main').toggleClass('darkness');
+    $('#main-visual').toggleClass('darkness');
 };

@@ -1,0 +1,7 @@
+{% extends "base.html" %} {% load staticfiles %} {% block header %}
+<link href="{% static 'css/Artist.css' %}" rel="stylesheet"> {% endblock %} {% block main %}
+<div id="main" class="container-fluid darkness">
+    {% block Artist %} {% endblock %}
+</div>
+
+{% endblock %}

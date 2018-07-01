@@ -20,7 +20,11 @@ class HaLu(TemplateView):
         context = {}
         context['Artist'] = 'HaLu'
         context['nickname'] = 'F の創人'
-        context['comments'] = 'あいうえお'
+        context['act1'] = '2013年から各地イベントに参加。'
+        context['act2'] = 'F の創人'
+        context['comments'] = """自作ファンタジー世界の「World of F ～Fの世界～」で使用されているアイテムや幻想的な風景を、
+                                様々な素材を用いて表現しています。
+                                自然と歴史が好き。"""
         context['since'] = '2013'
         context['twitter'] = 'https://twitter.com/Hyu_HaLu?ref_src=twsrc%5Etfw'
 
@@ -42,3 +46,14 @@ class Ken(TemplateView):
         context['twitter'] = 'https://twitter.com/brv_HK?ref_src=twsrc%5Etfw'
 
         return context
+
+class WorldOfFView(TemplateView):
+
+    template_name = 'about/World-of-F.html'
+
+    def get_context_date(self, *args, **kwargs):
+
+        context = {}
+
+        return context
+

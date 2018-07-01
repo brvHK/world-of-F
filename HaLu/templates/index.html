@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% load staticfiles %} {% block header %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet"> {% endblock %} {% block main %}
+<div class="welcome">
+
+    <h1 class="welcome-title"><a href="#main-wrapper">Welcome to World of <strong class="F">F</strong></a></h1>
+    <!--<h3 class="welcome-title welcome-sub-title">ようこそ <strong>F</strong> の世界へ</h3> -->
+</div>
+<div id="main" class="container-fluid darkness">
+    <div class="main-contents row" id="main-wrapper">
+        <div id="whats-new" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <h2 class="index-contents">新着情報</h2>
+            <div id="whatsnew" class="infobox">
+                <ul>
+                    <li><span class="tag item">ITEM</span>&nbsp; <a href="/item">アイテム</a>を追加しました(2018/4/11)</li>
+                    <li><span class="tag item">ITEM</span>&nbsp; <a href="/item">アイテム</a>を追加しました(2018/3/23)</li>
+                    <li><span class="tag item">ITEM</span>&nbsp; <a href="/item">アイテム</a>を追加しました(2018/3/10)</li>
+                    <li><span class="tag story-tag">STORY</span>&nbsp; <a href="{% url 'story:Second' %}">The <strong class="F">F</strong>lickers Story</a> を追加しました(2018/3/10)</li>
+                    <li><span class="tag story-tag">STORY</span>&nbsp; <a href="{% url 'story:First' %}">The <strong class="F">F</strong>ixed World</a> を追加しました(2018/3/10)</li>
+                    <li><span class="tag new">NEWS</span>&nbsp; <a href="/information">本サイト</a> を公開しました (2018/3/10) </li>
+                </ul>
+            </div>
+        </div>
+        <div id="event-info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <h2 class "intex-contents">イベント情報</h2>
+            <div id="event" class="infobox">
+                <ul>
+                    <li><span class="tag update">更新</span>&nbsp; 通販サイト [<a href="https://minne.com/@hyu061139/profile" target="_blank">ミンネ</a> ] を更新しました</li>
+                    <li><span class="tag new">EVENT</span>&nbsp;<a href="http://guignol.jp/event/2018-06tentai/" target="_blank">天体観測展</a> @阪急百貨店うめだ本店10階 に出展します (2018/6/20 - 6/26)</li>
+                    <li><span class="tag new">EVENT</span>&nbsp;<a href="http://guignol.jp/event/2018-06tentai/" target="_blank">天体観測展</a> @大阪中崎街本店 に出展します (2018/7/13 - 7/29)</li>
+                    <li><span class="tag end">終了</span><a href="https://hoshimori.jp/" target="_blank">星降る森の魔法市</a> が終了しました。ご来場いただいた方はありがとうございました！！ (2018/4/15)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+        jQuery(function($) {
+            $('.welcome').bgswitcher({
+                images: [{% for artimage in images %}'/static/{{ artimage.artImage.name }}' {% if not forloop.last %}, {% endif %} {% endfor %}],
+                interval: 5000, // 背景画像を切り替える間隔を指定する (ms)
+                loop: true, // 切り替えを繰り返すか指定 true=繰り返す
+                shuffle: false, // 背景画像の順番をシャッフルするか指定
+                effect: "fade", // fade, blind, clip, slide, drop, hide
+                duration: 1000, // エフェクトの時間間隔 (ms)
+                easing: "linear" // linear,swing 
+            });
+        });
+    </script>
+    <script>
+        jQuery(function($) {
+            // #で始まるアンカーをクリックした場合に処理
+            $('a[href^="#"]').click(function() {
+                var speed = 400;
+                var href = $(this).attr("href");
+                var target = $(href == "#" || href == "" ? 'html' : href);
+                var position = target.offset().top;
+                $('body,html').animate({
+                    scrollTop: position
+                }, speed, 'swing');
+                return false;
+            });
+        });
+    </script>
+    <div class="halu-twitter">
+        <a href="https://twitter.com/Hyu_HaLu?lang=ja" target="_blank" class="twitter-button" title="HaLuのtwitterへ" ><i class="fa fa-twitter fa-3x fa-skyblue" aria-hidden="true"></i></a>
+    </div>
+</div>
+{% endblock %}

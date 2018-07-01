@@ -1,46 +1,199 @@
+.infobox {
+    color: white;
+}
+
+.infobox h2 {
+    padding: 3px;
+    background: #ddd;
+}
+
+.infobox ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.infobox li {
+    padding: 15px 0 15px 7em;
+    text-indent: -7em;
+    border-bottom: 1px solid #ddd;
+}
+
+.infobox li span {
+    display: inline-block;
+    width: 5em;
+    text-indent: 0;
+}
+
+.infobox li a {
+    text-decoration: none;
+    color: white;
+}
+
+.infobox li a:hover {
+    text-decoration: underline;
+    color: whitesmoke;
+}
+
+.tag {
+    padding: 2px 2px;
+    font-weight: bold;
+    color: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    behavior: url(PIE.htc);
+}
+
+.new {
+    background: #e4016f;
+}
+
+.item {
+    background: #fa7e01;
+}
+
+.story-tag {
+    background: #a90311;
+}
+
+.end {
+    background: gray;
+}
+
+.update {
+    background: green;
+}
+
+.welcome {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    color: white;
+    text-align: center;
+}
+
+.welcome-title {
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 15;
+    text-shadow: 1px 1px 1px white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.welcome-titlen a:link,
+.welcome-title a:visited,
+.welcome-title a:hover,
+.welcome-title a:active {
+    color: white;
+}
+
+#whats-new {
+    padding-top: 30px;
+    padding-left: 130px;
+}
+
+#event-info {
+    padding-top: 30px;
+    padding-right: 130px;
+    padding-left: 10px;
+}
+
 #main {
     color: white;
 }
 
-
-/* main-visual */
-
-#main-visual {
-    min-height: 680px;
-    background-image: url('/static/img/bg/bk_img001.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
+#main-wrapper {
+    margin-bottom: 50px;
 }
 
-#main-visual h2 {
-    color: #fff;
-}
-
-#new {
-    color: white;
-    /*margin: 10%;*/
-}
-
-div.infobox {
-    height: 5.5em;
-    /* 高さを制限(※) */
-    border: gray 2px solid;
-    /* 枠線を追加 */
-    background-color: rgba(139, 130, 130, 0.5);
-    /* 背景色を追加 */
-    color: azure;
-    overflow: auto;
+@media screen and (max-width: 780px) {
+    #whats-new {
+        padding-left: 60px;
+    }
+    #event-info {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
 }
 
 @media screen and (max-width: 422px) {
+    #whats-new {
+        padding-top: 30px;
+        padding-left: 10px;
+    }
+    #event-info {
+        padding-top: 30px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
     #new {
         width: 100%;
     }
-    #main-visual {
-        min-height: 320px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
+    #event-info {
+        padding-top: 0;
     }
+    .welcome {
+        width: 100%;
+        background-repeat: no-repeat;
+    }
+    .welcome-title {
+        color: white;
+        font-size: 28px;
+        line-height: 1.5;
+        font-weight: bold;
+        text-align: center;
+        text-shadow: 1px 1px 1px white;
+    }
+}
+
+.halu-twitter {
+    position: fixed;
+    width: 120px;
+    right: -100px;
+    top: 480px;
+    z-index: 99999;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: 80px;
+}
+
+
+/* ボタンのスタイル */
+
+.twitter-button {
+    text-align: center;
+    background-color: white;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    /*background: #668ad8;*/
+    /*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    box-shadow: 2px 2px 4px gray;
+}
+
+.twitter-button:active {
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    /*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    /*影を小さく*/
+    border-bottom: none;
 }

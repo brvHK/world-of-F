@@ -1,3 +1,6 @@
+# coding:utf-8
+from datetime import datetime
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.shortcuts import render
@@ -5,7 +8,7 @@ from django.shortcuts import resolve_url
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from django.http import HttpResponse
-from django.template import Context, loader
+from django.template import Context, loader, Library
 from django.utils.safestring import mark_safe
 from django.views.generic import TemplateView
 from django.views.generic.list import ListView
@@ -16,8 +19,8 @@ from cms.models import ArtImage
 from cms.models import Category
 from cms.models import Chapter
 
-# Create your views here.
-
+register = Library()
+today = datetime.now()
 
 class Item(ListView):
     """アイテム"""
@@ -31,6 +34,13 @@ class Item(ListView):
         q_categorys = self.request.GET.getlist('category')
         q_chapters = self.request.GET.getlist('chapter')
         page = self.kwargs.get('page')
+        category_filtered = None
+        q = None
+        if q_categorys:
+            for category_id in q_categorys:
+                q =  Q(id=category_id) if q is None else q | Q(id=category_id)
+        if q is not None:
+            category_filtered = Category.objects.filter(q)
         paginator = Paginator(self.object_list, self.paginate_by)
         try:
             self.object_list = paginator.page(page)
@@ -43,13 +53,15 @@ class Item(ListView):
         categorys = Category.objects.all()
         artImages = ArtImage.objects.all()
         chapters = Chapter.objects.all()
+        all_item_count = Art.objects.all().count()
         context["categorys"] = categorys
         context["q_categorys"] = q_categorys
         context["q_chapters"] = q_chapters
         context["artImages"] = artImages
         context["chapters"] = chapters
-        # print(context)
-
+        context["item_count"] = paginator.count
+        context["item_count_all"] = all_item_count
+        context["category_filtered"] = category_filtered if category_filtered else None
         return context
 
     """
@@ -88,7 +100,7 @@ class Item(ListView):
     def get_queryset(self):
         # デフォルトは全件取得
 
-        results = Art.objects.all().order_by('date')
+        results = Art.objects.all().order_by('date').reverse()
         q_categorys = self.request.GET.getlist('category')
         q_chapters = self.request.GET.getlist('chapter')
         q = None
@@ -115,7 +127,14 @@ class Item(ListView):
         return results
 
 
+
 class ItemDetailView(DetailView):
     """アイテム"""
 
     model = Art
+
+    def get_context_data(self, **kwargs):
+        context = super(ItemDetailView, self).get_context_data(**kwargs)
+
+        context['images'] = ArtImage.objects.all().filter(art_id=kwargs["object"].id)
+        return context

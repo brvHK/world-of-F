@@ -6,7 +6,7 @@ from django.views.generic.base import TemplateView
 
 class IndexView(TemplateView):
 
-    template_name = 'story/index.html'
+    template_name = 'story/prologue.html'
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
@@ -17,11 +17,13 @@ class IndexView(TemplateView):
 
 class First(TemplateView):
 
-    template_name = 'story/index.html'
+    template_name = 'story/prologue.html'
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['chapter'] = "1st"
+        ctx['title'] = "The Fixed World"
+        ctx['sub_title'] = "失われた 時 の世界"
         ctx['items'] = 'item'
         ctx['story'] = """\
 幾千年も昔。
@@ -51,14 +53,84 @@ STORY_CONTENTS_HTML = """\
 
 class Second(TemplateView):
 
-    template_name = 'story/index.html'
+    template_name = 'story/prologue.html'
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['chapter'] = "2nd"
+        ctx['title'] = "The Flickers Story"
+        ctx['sub_title'] = "失われた 時 の世界"
         ctx['items'] = 'item'
+        ctx['story'] = """\
+遠い遠い場所にある、まだ魔法が当たり前に存在する世界の物語。
+
+自然豊かなこの星に、一人の青年が居た。
+一所に居を構えず、世界各地を旅するトレジャーハンター。
+
+彼の名は、カイル・オーウェン
+
+相棒は、　「碧の短剣」
+
+この世界には、七色に光る湖や森に棲まう水晶が道標となるラミアの森が存在する。
+勿論危険は伴うが、見るものを楽しませてくれる、――それだけでも旅をする理由になるだろう。
+
+
+一見平和そうに見えるこの世界を、黒い影が蝕み始めていた。
+もう誰にも止めることが出来ないこの現象に、彼と、その仲間たちは巻き込まれていく。
+
+…そしてもうひとつ。
+今となっては当たり前のこととなっていて誰も気に留めてはいないが、
+この世界には、遠い昔から存在する
+
+
+――空に浮かぶ大きな大陸があった。
+
+
+Fの世界　第Ⅱ章　 ～　The Flicker's  Story　～
+
+"""
         return ctx
 
+
+class Third(TemplateView):
+
+    template_name = 'story/prologue.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['chapter'] = "3rd"
+        ctx['title'] = "Magical Fantasy"
+        ctx['sub_title'] = "失われた 時 の世界"
+        ctx['items'] = 'item'
+        ctx['story'] = """\
+遠い遠い場所にある、まだ魔法が当たり前に存在する世界の物語。
+
+自然豊かなこの星に、一人の青年が居た。
+一所に居を構えず、世界各地を旅するトレジャーハンター。
+
+彼の名は、カイル・オーウェン
+
+相棒は、　「碧の短剣」
+
+この世界には、七色に光る湖や森に棲まう水晶が道標となるラミアの森が存在する。
+勿論危険は伴うが、見るものを楽しませてくれる、――それだけでも旅をする理由になるだろう。
+
+
+一見平和そうに見えるこの世界を、黒い影が蝕み始めていた。
+もう誰にも止めることが出来ないこの現象に、彼と、その仲間たちは巻き込まれていく。
+
+…そしてもうひとつ。
+今となっては当たり前のこととなっていて誰も気に留めてはいないが、
+この世界には、遠い昔から存在する
+
+
+――空に浮かぶ大きな大陸があった。
+
+
+Fの世界　第Ⅱ章　 ～　The Flicker's  Story　～
+
+"""
+        return ctx
 
 class MainView(TemplateView):
 

@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from django.http import HttpResponse
+from django.views.generic.base import TemplateView
 
 from cms.models import Art
+from cms.models import ArtImage
 from cms.forms import ArtForm
 
 # Create your views here.
@@ -59,8 +61,26 @@ def art_del(request, art_id=None):
 
     #return HttpResponse(u'作品の削除')
 
+class IndexView(TemplateView):
+
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        images = ArtImage.objects.filter(is_topPageImage=True)
+        ctx['images'] = images
+        return ctx
+
 def index(request):
     """
     index
     """
     return render(request, 'template/index.html')
+
+class InformationView(TemplateView):
+
+    template_name = 'information.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        return ctx

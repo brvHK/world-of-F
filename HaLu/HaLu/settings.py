@@ -52,7 +52,9 @@ INSTALLED_APPS = [
     'bootstrapform',
     'cms',
     'story',
-    'api'
+    'api',
+    'blog',
+    'items'
 ]
 
 MIDDLEWARE = [

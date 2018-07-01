@@ -27,7 +27,26 @@ def get_image(request, pk=None, light=None):
     else:
         artimages = artimages.filter(is_in_dark=False)
 
-    config = create_chartjs_json_dict(artimages)
+    config = create_artimage_dict(artimages)
+    json_str = json.dumps(config, ensure_ascii=False, indent=2)
+    return _respose_json(request=request, json_str=json_str, status=status)
+
+
+def get_images(request, pk=None, light=None):
+    status = None
+
+    art = Art.objects.get(pk=pk)
+
+    artimages = ArtImage.objects.filter(art=art)
+    print(light)
+
+    if light == 'off' or light is None:
+        # query_paramが指定されている場合の処理
+        artimages = artimages.filter(is_in_dark=True)
+    else:
+        artimages = artimages.filter(is_in_dark=False)
+
+    config = create_artimage_dict(artimages)
     json_str = json.dumps(config, ensure_ascii=False, indent=2)
     return _respose_json(request=request, json_str=json_str, status=status)
 
@@ -47,7 +66,7 @@ def _respose_json(request, json_str, status):
     return response
 
 
-def create_chartjs_json_dict(artImages):
+def create_artimage_dict(artImages):
 
     config = {}
     for artImage in artImages:

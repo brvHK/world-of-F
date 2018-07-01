@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}{% block title %}World of F ブログ{% endblock %} {% load staticfiles %} {% block header %}
+<link href="{% static 'css/Blog.css' %}" rel="stylesheet"> {% endblock %} {% block Subtitle %}
+<h3>- {{ Subtitle}} -</h3> {% endblock Subtitle %} {% block main %}
+<div id="main" class="container-fluid">
+    <div class="row blog-list">
+        {% for blog in object_list %}
+        <div class="blog-list-contents">
+            <h1>{{ blog.title }}</h1>
+            <a href="/blog/detail/{{ blog.id }}">
+                <figure>
+                    <img class="item-image" id="image_{{ blog.id }}" src='/static/{{ blog.thumbnail.name }}' />
+                    <figcaption><strong>{{ blog.name }}</strong></figcaption>
+                </figure>
+            </a>
+            <section>{{ blog.content }}</section>
+            <p>{{ blog.create_date }}</p>
+            <p>{{ blog.category }}</p>
+            <p>{{ blog.writer }}</p>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

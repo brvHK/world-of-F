@@ -2,52 +2,41 @@
     background: linear-gradient(45deg, rgba(125, 216, 216, 0.6), rgba(49, 23, 245, 0.8));
 }
 
-#Story-div {
-    width: 90%;
+.title-wrapper {
     background-color: #4b38382f;
-    min-height: 1000px;
-    text-align: center;
     color: white;
-    margin-top: 80px;
     align-content: center;
     text-align: center;
-    margin-right: auto;
-    margin-left: auto;
 }
 
-#story-title {
-    font-size: 36pt;
+#title {
+    font-size: 24pt;
     font-style: italic;
-    margin: 20px auto;
     padding: 20px;
 }
 
-#img-div {
-    margin-top: 50px;
-    width: 80%;
-    margin: 0 auto;
+#sub_title {
+    font-size: 24pt;
+    font-style: italic;
 }
 
 #img-div img {
     width: 100%;
 }
 
-#tell-div {
-    margin: 10px;
-}
 
 .main-cotents-wrapper {
     width: 100%;
     height: 100%;
 }
 
-.test-01 img:first-child {
-    -webkit-animation: crossfade 5s linear 0s infinite alternate;
-    animation: crossfade 5s linear 0s infinite alternate;
+.story-contents-wrapper {
+    background-color: #4b38382f;
+    color: white;
 }
 
 .story-contents {
-    font-size: 150%;
+    font-size: 120%;
     overflow: auto;
     white-space: pre-wrap;
     word-wrap: break-word;

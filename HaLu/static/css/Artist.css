@@ -7,10 +7,41 @@
 }
 
 #Artist * {
-    padding: 30px;
     color: white;
 }
 
 #Artist {
-    margin-top: 160px;
+    margin-top: 16px;
+    padding: 0 60px;
+}
+
+.invite-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.HaLu-icon{
+    display: inline-block;
+}
+
+.HaLu-comment {
+    display: inline-block;
+    bottom: 0;
+    padding: 35px;
+}
+
+.action-wrapper ul{
+    list-style: none;
+}
+
+.action-wrapper ul li{
+    padding-left: 35px;
+}
+
+@media screen and (max-width: 422px){
+    #Artist {
+        padding: 0;
+    }
+
 }

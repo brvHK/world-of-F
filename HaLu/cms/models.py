@@ -31,9 +31,11 @@ class Chapter(models.Model):
         verbose_name_plural = '章'
 
     chapter = models.CharField(u'章', max_length=15)
+    name = models.CharField(u'名前', max_length=30,null=True,blank=True)
 
     def __str__(self):
-        return self.chapter
+        n = self.name if self.name else ""
+        return self.chapter + " " + n 
 
 
 class Art(models.Model):
@@ -88,6 +90,8 @@ class ArtImage(models.Model):
     art = models.ForeignKey(Art, models.SET_NULL, blank=True,
                             null=True, verbose_name="作品", related_name="art")
     is_in_dark = models.BooleanField(u'暗闇', default=True)
+    is_topPageImage = models.BooleanField(u'トップページ', default=False)
+    is_itemlist = models.BooleanField(u'アイテムリストに載せる', default=True)
 
     def __str__(self):
         return self.displayName

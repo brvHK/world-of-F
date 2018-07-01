@@ -1,0 +1,99 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fの世界へようこそ{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="このサイトは、ファンタジー -World of F-(Fの世界)の紹介と、HaLuの作品紹介をしています。さらにブログを通じて日々の出来事を発信します。">
+    <meta name="keywords" content="Fの世界,World of F,アクセサリ,雑貨,手作り,ブログ,django,プログラミング">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet"> -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.bgswitcher.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link href="{% static 'css/reset.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/vnd.microsoft.icon">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/css/perfect-scrollbar.min.css' rel='stylesheet' type='text/css'> {% block header %} {{ header }} {% endblock %} {% block extrahead %}{% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/js/perfect-scrollbar.jquery.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115929632-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-115929632-1');
+    </script>
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <ul id="header-menu" class="header-menu-main">
+                <li class="header-trigger">
+                    <a class="header-icon header-icon-menu"><span>Menu</span></a>
+                    <nav class="header-menu-wrapper">
+                        <div class="header-scroller">
+                            <ul class="header-menu">
+                                <li><a class="header-icon header-icon-site" id="about_site"href="/about/this-site">Fの世界とは</a></li>
+                                <!-- <li class="header-search-item">
+                                        <input placeholder="Search" type="search" class="header-search">
+                                        <a class="header-icon header-icon-search"><span>Search</span></a>
+                                    </li> -->
+                                <li>
+                                    <a href="#" class="header-icon header-icon-story" id="story">小説プロローグ</a>
+                                    <ul class="header-submenu">
+                                        <li><a class="header-icon header-icon-story" href="/story/prologue/1st/">The <strong class="F">F</strong>ixed World</a></li>
+                                        <li><a class="header-icon header-icon-story" href="/story/prologue/2nd/">The <strong class="F">F</strong>lickers Story</a></li>
+                                        <li><a class="header-icon header-icon-story" href="#">The Magical <strong class="F">F</strong>antasy</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="header-icon header-icon-item" href="/item">作品</a></li>
+                                <li><a class="header-icon header-icon-about" href="/about/Artist/HaLu">HaLuについて</a></li>
+                                <li> <a class="header-icon header-icon-info" href="/information">情報</a> </li>
+                                <li class="header-bottom"><a class="header-icon header-icon-blog" href="/blog" target="_blank">ブログ</a></li>
+                            </ul>
+                            
+                        </div>
+                        <!-- /header-scroller -->
+                    </nav>
+                </li>
+                <li>
+                    <a href="/"><img id="brand-logo" src="{% static 'img/logo.png' %}" alt="World of F" /></a>
+                </li>
+
+                <li><a href="/story-contents/index.html">&raquo;小説</a></li>
+            </ul>
+            
+        </header>
+
+        {% block main %} {{ main }} {% endblock main %}
+
+        <footer>
+            <a href="/" style="color: white;"><strong class="F">F</strong> の世界</a>
+            <p>Copyright :
+                <a href="/about/Artist/HaLu">HaLu</a> &
+                <a href="/about/Artist/HK">Ken</a>
+            </p>
+            <p>since 2013 - 2018 </p>
+        </footer>
+    </div>
+
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/gnmenu.js' %}"></script>
+    <script>
+        new gnMenu(document.getElementById('header-menu'));
+    </script>
+</body>
+
+
+</html>

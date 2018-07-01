@@ -286,6 +286,11 @@ input.header-search:focus {
     z-index: 1500;
 }
 
+.header-icon-site::before {
+    content: "\f1b2";
+    font-family: FontAwesome;
+}
+
 .header-icon-item::before {
     content: "\f219";
     font-family: FontAwesome;
@@ -303,6 +308,11 @@ input.header-search:focus {
 
 .header-icon-info::before {
     content: "\f129";
+    font-family: FontAwesome;
+}
+
+.header-icon-blog::before {
+    content: "\f005";
     font-family: FontAwesome;
 }
 

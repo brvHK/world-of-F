@@ -1,0 +1,98 @@
+{% extends "base.html" %} {% load custom_filter %} {% block title %}{{ object.name }} 作品紹介 {% endblock %}{% load staticfiles %} {% block extrahead %}
+<link href="{% static 'css/Item.css' %}" rel="stylesheet">
+<style>
+    table {
+        margin-top: 8px;
+    }
+    
+    div#wrapper {
+        background-image: url("/static/img/item/bg.jpg");
+        background-repeat: repeat;
+    }
+</style>
+{% endblock %} {% block main %}
+<div id="main-visual" class="container-fluid">
+    <ul class="breadcrumb">
+        <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="/item/" itemprop="url">
+                <span itemprop="title">全ての作品</span>
+            </a>
+        </li>
+        <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="/item/?category={{ object.category.id }}" itemprop="url">
+                <span itemprop="title">{{ object.category }}</span>
+            </a>
+        </li>
+        <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="" itemprop="url">
+                <span itemprop="title">{{ object.name }}</span>
+            </a>
+        </li>
+    </ul>
+    <div id="filter" class="row">
+        <ul class="public-date fixed">
+            <li><p>公開日: {{ object.date }}</p></li>
+        </ul>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="detail">
+
+            <h1 class="item-name">{{ object.name }}</h1>
+        </div>
+        <div id="art-image" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for artimage in images %}
+                <li data-target="#art-image" data-slide-to="{{ loop.counter }}" {% if forloop.first %}class="active" {% endif %}></li>
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% if art.is_sold %}
+                <div class="ribbon_soldout">
+                    <span class="ribbon">SOLD OUT</span>
+                </div>
+                {% endif %}
+                {% if art.date|is_new %}
+                <div class="ribbon_new-wrapper">
+                    <span class="ribbon_new">NEW</span>
+                </div>
+                {% endif %}
+                {% for artimage in images %}
+                <div class="item{% if forloop.first %} active{% endif %}">
+                    <img src="/static/{{ artimage.artImage.name }}" alt="">
+                    <div class="carousel-caption" id="img-caption">
+                        <h4>{{ artimage.displayName }}</h4>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a class="left carousel-control" href="#art-image" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#art-image" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="detail-wrapper">
+                <span class="detail-text">詳細</span>
+                <p> {{ object.detail }}</p>
+            </div>
+
+            {%if object.minne_url %}
+            <div class="minnne-wrapper">
+                  <img src="" /> 
+                  <p>こちらは、<a href="{{ object.minne_url }}">ミンネ</a>で取り扱い中です</p>
+            </div>
+            {% endif %}
+        </div>
+        <div class="comment-wrapper">
+            <div class="faceicon">
+                <img src="/static/img/about/HaLu.jpg"/>
+            </div>
+            <div class="comment">
+                <div class="says">
+                    <p>{{ object.comment }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}
